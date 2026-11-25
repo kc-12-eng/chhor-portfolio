@@ -29,6 +29,9 @@ section{padding:76px 0;scroll-margin-top:76px}.sec-head{margin-bottom:27px}.sec-
 @media(max-width:940px){.hero{grid-template-columns:1fr;gap:16px;min-height:unset}.grid{grid-template-columns:1fr 1fr}.navlinks{gap:11px}.navlinks a{font-size:.77rem}}
 @media(max-width:660px){.grid,.grid.two{grid-template-columns:1fr}.hero{padding:64px 0 40px}.hero h1{font-size:3.4rem}.nav{min-height:67px}.menu{display:block;margin-left:auto}.navlinks{display:none;position:absolute;top:67px;left:0;right:0;background:var(--bg);padding:17px 23px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.navlinks a{font-size:1rem;padding:5px 0}.nav .btn.small{display:none}section{padding:55px 0}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}#stars{display:none}}
+
+.live-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.live-head h3{margin:0}.live-controls{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.live-controls button{border:1px solid var(--line);background:transparent;color:var(--text);border-radius:10px;padding:8px 14px}.live-controls button[aria-pressed=true]{background:var(--accent);color:var(--bg);font-weight:700}.live-status{font-size:.85rem;color:var(--muted)}.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.live-item{padding:20px;background:var(--glass);border:1px solid var(--line);border-radius:16px}.live-item h4{font-size:1.05rem;margin:10px 0;line-height:1.4}.live-item p{margin:8px 0}.live-item a{font-size:.86rem}.live-count{display:inline-flex;align-items:center;gap:7px;color:var(--accent);border:1px solid var(--line);border-radius:30px;padding:6px 12px;font-size:.8rem}.live-count:before{content:"";width:8px;height:8px;border-radius:50%;background:#a78bfa;box-shadow:0 0 10px #a78bfa}.live-new{font-size:.7rem;color:var(--accent);margin-left:8px}@media(max-width:660px){.live-grid{grid-template-columns:1fr}}
 </style></head><body>
 <a class="skip" href="#accueil">Aller au contenu</a><canvas id="stars" aria-hidden="true"></canvas>
 <header><div class="container nav"><a class="brand" href="#accueil"><i>›</i> CHHOR<span style="color:var(--accent)">.</span>SISR</a>
@@ -75,6 +78,14 @@ section{padding:76px 0;scroll-margin-top:76px}.sec-head{margin-bottom:27px}.sec-
 <div class="block"><h3>Mon dispositif de veille</h3><p>Suivi du <strong>13 octobre au 17 novembre 2026</strong> : agrégation RSS sur Inoreader (NIST, Cisco Security, strongSwan), Google Alertes ciblées, consultation des publications IETF / IPSECME et suivi des comptes ANSSI / Cisco Security.</p>
 <p>Les recherches portent sur ML-KEM, les échanges de clés IKEv2, la taille et la fragmentation des messages, les performances, l'authentification et la migration.</p>
 <a class="btn" href="https://chhorportfolio.wordpress.com/wp-content/uploads/2026/11/compte_rendu_veille_pqc_ipsec_maj_17-11-20261.docx" target="_blank" rel="noopener">Compte rendu S1–S6 ↗</a></div>
+<div class="block" id="veille-live">
+<div class="live-head"><div><span class="eyebrow">Flux de veille · actualisation automatique</span><h3>Dernières informations</h3></div><span class="live-count" id="veille-count" aria-live="polite">Vérification…</span></div>
+<p>Les alertes <strong>PUSH</strong> proviennent de Google Alertes reçues par mail. Les informations <strong>PULL</strong> proviennent de recherches automatisées dans les sources publiques de référence. Seuls les titres, résumés et liens publics sélectionnés sont affichés. Ce flux automatique est distinct de mon journal de veille personnel.</p>
+<div class="live-controls" role="group" aria-label="Filtrer les informations"><button type="button" data-veille-filter="all" aria-pressed="true">Tout</button><button type="button" data-veille-filter="PUSH" aria-pressed="false">PUSH · Alertes</button><button type="button" data-veille-filter="PULL" aria-pressed="false">PULL · Sources</button><button type="button" id="veille-refresh">Actualiser ↻</button><button type="button" id="veille-read">Marquer comme lu</button></div>
+<p id="veille-status" class="live-status" role="status">Chargement des informations…</p><div id="veille-items" class="live-grid"></div>
+<noscript><p>Activez JavaScript pour afficher les dernières informations de veille.</p></noscript>
+</div>
+<h3>Journal de veille personnel · S1 à S6</h3>
 <div class="timeline">
 <div class="entry"><span class="tag">S1–S2 · Octobre</span><h3>Transport et taille des messages IKEv2</h3><p>Projets IETF sur le transport des échanges et les payloads volumineux.</p></div>
 <div class="entry"><span class="tag">S3 · 27 octobre</span><h3>Transition vers la PQC (NIST)</h3><p>Préparer la migration cryptographique et examiner les approches hybrides.</p></div>
@@ -103,4 +114,4 @@ function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight;var n=Ma
 function draw(){ctx.clearRect(0,0,w,h);for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.fillStyle='rgba(173,140,255,.53)';ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fill();for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<145){ctx.strokeStyle='rgba(144,114,230,'+(0.17*(1-dist/145))+')';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}raf=requestAnimationFrame(draw);}draw();
 document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);}else{draw();}});
 })();
-</script></body></html>
+</script><script src="veille.js" defer></script></body></html>
