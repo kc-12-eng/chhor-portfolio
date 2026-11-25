@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Portfolio BTS SIO SISR de Ksatiyarith Patrice Chhor : stage, pfSense, projets, compétences et veille post-quantique.">
+<title>Ksatiyarith Patrice Chhor | BTS SIO SISR</title>
+<style>
+:root{--bg:#0a0a18;--panel:#17132d;--surface:#23193e;--accent:#baa5ff;--accent2:#8062f5;--text:#f5f2ff;--muted:#b6afd2;--line:#50416b;--glass:rgba(30,23,57,.86);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65;min-width:300px}
+a{color:inherit}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+#stars{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.85}
+body:before{content:"";position:fixed;z-index:-2;inset:0;background:radial-gradient(circle at 15% 0%,#211443 0,transparent 40%),radial-gradient(circle at 85% 80%,#201038 0,transparent 45%)}
+.container{width:min(1160px,calc(100% - 42px));margin:auto}.skip{position:absolute;top:-100px;left:12px}.skip:focus{top:12px;background:var(--accent);color:#080817;z-index:200}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,24,.86);border-bottom:1px solid #3d3053;backdrop-filter:blur(22px)}
+.nav{display:flex;align-items:center;gap:22px;min-height:76px}.brand{font-size:1.26rem;font-weight:850;white-space:nowrap;text-decoration:none;letter-spacing:-.04em}.brand i{color:var(--accent);font-style:normal}.navlinks{margin-left:auto;display:flex;gap:19px;align-items:center}.navlinks a{font-size:.86rem;text-decoration:none;color:var(--muted);transition:color .2s}.navlinks a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:750;background:var(--accent);color:#110e24;border:1px solid transparent;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px #8a69ec55}.btn.outline{background:transparent;border-color:var(--line);color:var(--text)}.btn.small{padding:9px 14px;font-size:.86rem}.menu{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:7px 12px}
+main{overflow:hidden}.hero{padding:92px 0 70px;display:grid;grid-template-columns:1.3fr .85fr;gap:45px;align-items:center;min-height:610px}
+.eyebrow{color:var(--accent);letter-spacing:.17em;text-transform:uppercase;font-size:.72rem;font-weight:800}.hero h1{font-size:clamp(3.4rem,7vw,7rem);line-height:.96;letter-spacing:-.065em;margin:24px 0}.hero h1 span{color:var(--accent)}.lead{font-size:1.15rem;color:var(--muted);max-width:690px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.card{background:var(--glass);border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:0 22px 80px #07041335}.status h2{font-size:1rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}.row{border-top:1px solid #55457166;padding:15px 0;display:flex;gap:12px;justify-content:space-between;font-size:.91rem}.row span{color:var(--muted)}.row strong{text-align:right}
+section{padding:76px 0;scroll-margin-top:76px}.sec-head{margin-bottom:27px}.sec-head h2{font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.05em;line-height:1.1;margin:10px 0}.sec-head p{color:var(--muted);max-width:740px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile{border:1px solid var(--line);background:linear-gradient(145deg,rgba(43,31,80,.94),rgba(20,17,42,.94));border-radius:20px;padding:25px;transition:transform .25s,border-color .25s}.tile:hover{transform:translateY(-5px);border-color:var(--accent)}.tile h3{font-size:1.2rem;margin:8px 0 12px}.tile p,.tile li{color:var(--muted);font-size:.96rem}.tile a{color:var(--accent);font-weight:700}.tag{display:inline-block;color:var(--accent);font-size:.75rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.pill{display:inline-block;border:1px solid #6a548b;background:#3a295a88;border-radius:99px;padding:5px 12px;margin:3px 6px 3px 0;font-size:.78rem;color:#dcd2fb}
+.block{padding:32px;background:var(--panel);border:1px solid var(--line);border-radius:22px;margin:18px 0}.block h3{margin-top:0;font-size:1.4rem}.block p,.block li{color:var(--muted)}.block strong{color:var(--text)}.block a{color:var(--accent)}
+.timeline{display:grid;gap:14px}.entry{border-left:3px solid var(--accent);padding:13px 22px;background:#1a1434a8;border-radius:0 16px 16px 0}.entry h3{margin:0;font-size:1.08rem}.entry p{margin:.4rem 0;color:var(--muted)}.entry a{font-size:.85rem;color:var(--accent)}
+.footer{border-top:1px solid var(--line);padding:35px 0 45px;color:var(--muted);text-align:center;font-size:.86rem}
+.api-result{white-space:pre-wrap;word-break:break-word;font:13px/1.6 ui-monospace,Consolas,monospace;color:#d3c3ff;background:#0d0b20;border-radius:12px;padding:18px;min-height:60px}
+.reveal{opacity:0;transform:translateY(23px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+.theme-light{--bg:#f4f0ff;--panel:#fdfbff;--surface:#ebe1ff;--text:#23183d;--muted:#554e6e;--line:#b9a4d9;--glass:rgba(253,251,255,.92);--accent:#6c3cbe;--accent2:#8051cc;color-scheme:light}
+.theme-light header{background:#f9f5ffed}.theme-light .tile{background:#fbf9ff}.theme-light .entry{background:#e8ddff}.theme-light .api-result{color:#47356e;background:#eee7ff}.theme-light .btn{color:white}.theme-light .btn.outline{color:var(--text)}
+@media(max-width:940px){.hero{grid-template-columns:1fr;gap:16px;min-height:unset}.grid{grid-template-columns:1fr 1fr}.navlinks{gap:11px}.navlinks a{font-size:.77rem}}
+@media(max-width:660px){.grid,.grid.two{grid-template-columns:1fr}.hero{padding:64px 0 40px}.hero h1{font-size:3.4rem}.nav{min-height:67px}.menu{display:block;margin-left:auto}.navlinks{display:none;position:absolute;top:67px;left:0;right:0;background:var(--bg);padding:17px 23px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.navlinks a{font-size:1rem;padding:5px 0}.nav .btn.small{display:none}section{padding:55px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}#stars{display:none}}
+</style></head><body>
+<a class="skip" href="#accueil">Aller au contenu</a><canvas id="stars" aria-hidden="true"></canvas>
+<header><div class="container nav"><a class="brand" href="#accueil"><i>›</i> CHHOR<span style="color:var(--accent)">.</span>SISR</a>
+<button class="menu" aria-controls="navlinks" aria-expanded="false" id="menu">☰</button>
+<nav class="navlinks" id="navlinks" aria-label="Navigation principale">
+<a href="#accueil">Accueil</a><a href="#cv">CV</a><a href="#stages">Stage</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#veille">Veille</a><a href="#lab">API</a></nav>
+<button class="btn outline small" id="theme" title="Changer le thème">☼ Thème</button></div></header>
+<main class="container">
+<section class="hero" id="accueil"><div class="reveal"><span class="eyebrow">BTS SIO · Option SISR · Portfolio professionnel</span>
+<h1>KSATIYARITH<br><span>PATRICE</span><br>CHHOR.</h1>
+<p class="lead">Étudiant en deuxième année de BTS SIO, spécialité <strong>Solutions d'Infrastructure, Systèmes et Réseaux</strong>. J'explore l'administration des systèmes, les réseaux, la virtualisation et la cybersécurité.</p>
+<div class="actions"><a class="btn" href="#projets">Voir mes projets ↗</a><a class="btn outline" href="#veille">Ma veille technologique</a></div></div>
+<div class="card status reveal"><h2>● Mon profil</h2>
+<div class="row"><span>Localisation</span><strong>Pau · France</strong></div>
+<div class="row"><span>Formation</span><strong>BTS SIO · SISR</strong></div>
+<div class="row"><span>Spécialité</span><strong>Systèmes & réseaux</strong></div>
+<div class="row"><span>Parcours</span><strong>2025–2027</strong></div>
+<div class="row"><span>Technologies</span><strong>pfSense · Active Directory · Proxmox</strong></div></div></section>
+<section id="cv" class="reveal"><div class="sec-head"><span class="eyebrow">01 — Parcours</span><h2>Curriculum vitae</h2><p>Mon parcours scolaire, mes expériences professionnelles et les environnements techniques abordés en BTS SIO SISR.</p></div>
+<div class="grid two"><div class="tile"><span class="tag">Formation</span><h3>BTS SIO — option SISR</h3><p>Lycée Saint-John Perse, Pau · 2025–2027</p><h3>BTS Électrotechnique</h3><p>Lycée Galilée, Vienne · 2020–2022 (une année validée)</p><h3>Bac STI2D</h3><p>Option Énergies & Environnement · 2020</p></div>
+<div class="tile"><span class="tag">Compétences techniques</span><h3>Systèmes & infrastructure</h3><p>Windows, Linux, Active Directory, Samba, GPO, Proxmox, DNS/BIND9.</p><h3>Réseau & sécurité</h3><p>IPv4/IPv6, VLAN, DHCP, routage, NAT, pfSense, SSH, FTP, SquidGuard.</p><p><a href="https://chhorportfolio.wordpress.com/wp-content/uploads/2026/11/cv_patrice_chhor_public.pdf" target="_blank" rel="noopener">Télécharger mon CV public (PDF) ↗</a></p></div></div></section>
+<section id="stages" class="reveal"><div class="sec-head"><span class="eyebrow">02 — Expérience</span><h2>Stage de première année</h2><p>Cinq semaines à l'Institut Saint-Dominique à Pau, en 2026.</p></div><div class="grid">
+<div class="tile"><span class="tag">01</span><h3>Gestion du parc</h3><p>Suivi du matériel informatique et interventions sur les postes des utilisateurs.</p></div>
+<div class="tile"><span class="tag">02</span><h3>Diagnostic</h3><p>Recherche de causes de dysfonctionnements et assistance aux utilisateurs.</p></div>
+<div class="tile"><span class="tag">03</span><h3>Support de proximité</h3><p>Accompagnement des utilisateurs et prise en charge des demandes d'assistance.</p></div></div>
+<div class="block"><h3>Ce que m'a apporté ce stage</h3><p>Une première expérience concrète du support informatique, de l'écoute des utilisateurs et de l'importance d'une démarche rigoureuse de diagnostic.</p><a href="https://chhorportfolio.wordpress.com/stages/" target="_blank" rel="noopener">Consulter la présentation détaillée du stage ↗</a></div></section>
+<section id="projets" class="reveal"><div class="sec-head"><span class="eyebrow">03 — Réalisations</span><h2>Mes projets</h2><p>Des réalisations SISR, avec leur contexte technique, leur démarche et les résultats de tests.</p></div>
+<div class="block"><span class="tag">2ᵉ année · Travail en binôme · Octobre 2026</span><h3>Projet Fruit (Figue) — Infrastructure sécurisée</h3>
+<p>Conception et configuration d'une architecture segmentée <strong>WAN / DMZ / LAN</strong> avec deux pare-feu pfSense, des services Web/DNS sous Debian et un filtrage Internet SquidGuard. J'ai participé à l'ensemble du projet et assuré la majeure partie des configurations et des tests.</p>
+<div><span class="pill">pfSense</span><span class="pill">Debian</span><span class="pill">BIND9</span><span class="pill">NAT</span><span class="pill">SSH / FTP</span><span class="pill">SquidGuard</span></div>
+<h3>Résultats validés</h3><p>Publication HTTP du serveur de DMZ, résolution des noms DNS, accès SSH/FTP contrôlés, correction des règles de filtrage et tests du proxy.</p>
+<div class="actions"><a class="btn" href="https://chhorportfolio.wordpress.com/ateliers-pro/projet-fruit-figue-pfsense-squidguard/" target="_blank" rel="noopener">Lire la fiche détaillée ↗</a>
+<a class="btn outline" href="https://chhorportfolio.wordpress.com/wp-content/uploads/2026/11/compte_rendu_tp_reseau_pfsense_squidguard.docx" target="_blank" rel="noopener">Compte rendu DOCX ↗</a></div></div></section>
+<section id="competences" class="reveal"><div class="sec-head"><span class="eyebrow">04 — Épreuve E5</span><h2>Compétences du bloc 1</h2><p>Support et mise à disposition de services informatiques : six compétences à illustrer par les actions réalisées et leurs preuves.</p></div>
+<div class="grid">
+<div class="tile"><span class="tag">01</span><h3>Gérer le patrimoine informatique</h3><p>Suivi de parc pendant le stage.</p></div>
+<div class="tile"><span class="tag">02</span><h3>Répondre aux incidents et demandes</h3><p>Support utilisateur et corrections techniques du projet Fruit.</p></div>
+<div class="tile"><span class="tag">03</span><h3>Développer la présence en ligne</h3><p>Création et évolution du portfolio professionnel.</p></div>
+<div class="tile"><span class="tag">04</span><h3>Travailler en mode projet</h3><p>Réalisation technique du projet Fruit en binôme.</p></div>
+<div class="tile"><span class="tag">05</span><h3>Mettre à disposition un service informatique</h3><p>Services Web/DNS et accès contrôlés du projet Fruit.</p></div>
+<div class="tile"><span class="tag">06</span><h3>Organiser son développement professionnel</h3><p>Veille sur la cryptographie post-quantique appliquée à IPsec.</p></div>
+</div></section>
+<section id="veille" class="reveal"><div class="sec-head"><span class="eyebrow">05 — Veille technologique</span><h2>IPsec & cryptographie post-quantique</h2><p><strong>Problématique :</strong> Comment adapter les VPN IPsec aux nouvelles exigences de la cryptographie post-quantique ?</p></div>
+<div class="block"><h3>Mon dispositif de veille</h3><p>Suivi du <strong>13 octobre au 17 novembre 2026</strong> : agrégation RSS sur Inoreader (NIST, Cisco Security, strongSwan), Google Alertes ciblées, consultation des publications IETF / IPSECME et suivi des comptes ANSSI / Cisco Security.</p>
+<p>Les recherches portent sur ML-KEM, les échanges de clés IKEv2, la taille et la fragmentation des messages, les performances, l'authentification et la migration.</p>
+<a class="btn" href="https://chhorportfolio.wordpress.com/wp-content/uploads/2026/11/compte_rendu_veille_pqc_ipsec_maj_17-11-20261.docx" target="_blank" rel="noopener">Compte rendu S1–S6 ↗</a></div>
+<div class="timeline">
+<div class="entry"><span class="tag">S1–S2 · Octobre</span><h3>Transport et taille des messages IKEv2</h3><p>Projets IETF sur le transport des échanges et les payloads volumineux.</p></div>
+<div class="entry"><span class="tag">S3 · 27 octobre</span><h3>Transition vers la PQC (NIST)</h3><p>Préparer la migration cryptographique et examiner les approches hybrides.</p></div>
+<div class="entry"><span class="tag">S4 · 3 novembre</span><h3>Fragmentation des gros messages</h3><p>Étude de la fiabilité et du transport des messages IKEv2 volumineux.</p></div>
+<div class="entry"><span class="tag">S5 · 10 novembre</span><h3>Cisco · protection WAN</h3><p>Évolutions de la migration vers ML-KEM et des implémentations IPsec.</p></div>
+<div class="entry"><span class="tag">S6 · 17 novembre</span><h3>Authentification post-quantique IKEv2</h3><p>Projet de mécanisme KEM pour l'authentification, au stade Internet-Draft.</p></div></div></section>
+<section id="lab" class="reveal"><div class="sec-head"><span class="eyebrow">06 — Développement</span><h2>Laboratoire API & animations</h2><p>Exemple d'interaction JavaScript : récupération en direct des informations de mon dépôt GitHub via une API publique, sans clé secrète.</p></div>
+<div class="grid two"><div class="tile"><span class="tag">API GitHub</span><h3>État du dépôt</h3><p>Récupération asynchrone depuis l'API REST publique de GitHub.</p><button class="btn" id="load-api">Actualiser les données ↻</button></div>
+<div class="tile"><span class="tag">Réponse de l'API</span><div class="api-result" id="api-result" role="status" aria-live="polite">Clique sur « Actualiser les données » pour interroger GitHub.</div></div></div></section>
+</main><footer class="footer">Portfolio BTS SIO SISR · Ksatiyarith Patrice Chhor · 2026–2027 · <a href="https://github.com/kc-12-eng/chhor-portfolio" target="_blank" rel="noopener">Code source GitHub</a></footer>
+<script>
+(function(){
+'use strict';
+var menu=document.getElementById('menu'),nav=document.getElementById('navlinks');
+menu.addEventListener('click',function(){var open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');});});
+var theme=document.getElementById('theme');theme.addEventListener('click',function(){document.body.classList.toggle('theme-light');});
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=document.querySelectorAll('.reveal');
+if(!reduce&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target);}});},{threshold:.08});els.forEach(function(el){io.observe(el);});}else{els.forEach(function(el){el.classList.add('visible');});}
+var button=document.getElementById('load-api'),output=document.getElementById('api-result');
+button.addEventListener('click',async function(){button.disabled=true;output.textContent='Chargement…';try{var r=await fetch('https://api.github.com/repos/kc-12-eng/chhor-portfolio',{headers:{'Accept':'application/vnd.github+json'}});if(!r.ok)throw new Error('Erreur HTTP '+r.status);var d=await r.json();output.textContent='Dépôt : '+d.full_name+'\nVisibilité : '+(d.private?'Privé':'Public')+'\nBranche : '+d.default_branch+'\nDernière modification : '+new Date(d.updated_at).toLocaleDateString('fr-FR')+'\nÉtoiles : '+d.stargazers_count;}catch(e){output.textContent='Données indisponibles : '+e.message;}finally{button.disabled=false;}});
+if(reduce)return;
+var canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');if(!ctx)return;var pts=[],w=0,h=0,raf;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight;var n=Math.min(58,Math.max(17,Math.floor(w*h/23000)));pts=Array.from({length:n},function(){return{x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32};});}resize();window.addEventListener('resize',resize);
+function draw(){ctx.clearRect(0,0,w,h);for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.fillStyle='rgba(173,140,255,.53)';ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fill();for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<145){ctx.strokeStyle='rgba(144,114,230,'+(0.17*(1-dist/145))+')';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}raf=requestAnimationFrame(draw);}draw();
+document.addEventListener('visibilitychange',function(){if(document.hidden){cancelAnimationFrame(raf);}else{draw();}});
+})();
+</script></body></html>
