@@ -1,6 +1,30 @@
 {
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "items": [
+    {
+      "kind": "PULL",
+      "date": "2026-11-26",
+      "source": "IETF / IPSECME",
+      "title": "Intégration de ML-KEM aux échanges de clés IKEv2",
+      "summary": "Le draft de groupe version 09, publié le 5 juillet 2026 et toujours actif, décrit ML-KEM seul ou combiné à un échange classique selon RFC 9370, ainsi que les contraintes de taille des messages. ML-KEM est normalisé par FIPS 203 ; son intégration décrite ici reste un draft IETF.",
+      "url": "https://datatracker.ietf.org/doc/html/draft-ietf-ipsecme-ikev2-mlkem-09"
+    },
+    {
+      "kind": "PULL",
+      "date": "2026-11-25",
+      "source": "IETF / IPSECME",
+      "title": "Authentification IKEv2 fondée sur un KEM",
+      "summary": "Le draft individuel version 05 propose un mécanisme d’authentification post-quantique basé sur un KEM. Il s’agit d’une proposition, pas d’un standard publié.",
+      "url": "https://datatracker.ietf.org/doc/html/draft-wang-ipsecme-kem-auth-ikev2-05"
+    },
+    {
+      "kind": "PULL",
+      "date": "2026-11-25",
+      "source": "IETF / IPSECME",
+      "title": "Compte rendu du groupe IPSECME à l’IETF 127",
+      "summary": "Le compte rendu de la réunion du 16 novembre permet de suivre les discussions et l’avancement des travaux IKEv2, notamment autour de la cryptographie post-quantique.",
+      "url": "https://datatracker.ietf.org/doc/minutes-127-ipsecme/"
+    },
     {
       "kind": "PUSH",
       "date": "2026-11-24",
@@ -18,20 +42,12 @@
       "url": "https://www.telecomstechnews.com/news/nokia-adds-quantum-encryption-to-telia-5g-network/"
     },
     {
-      "kind": "PULL",
-      "date": "2026-11-25",
-      "source": "IETF / IPSECME",
-      "title": "Authentification IKEv2 fondée sur un KEM",
-      "summary": "Le draft individuel version 05 propose un mécanisme d’authentification post-quantique basé sur un KEM. Il s’agit d’une proposition, pas d’un standard publié.",
-      "url": "https://datatracker.ietf.org/doc/html/draft-wang-ipsecme-kem-auth-ikev2-05"
-    },
-    {
-      "kind": "PULL",
-      "date": "2026-11-25",
-      "source": "IETF / IPSECME",
-      "title": "Compte rendu du groupe IPSECME à l’IETF 127",
-      "summary": "Le compte rendu de la réunion du 16 novembre permet de suivre les discussions et l’avancement des travaux IKEv2, notamment autour de la cryptographie post-quantique.",
-      "url": "https://datatracker.ietf.org/doc/minutes-127-ipsecme/"
+      "kind": "PUSH",
+      "date": "2026-11-24",
+      "source": "Telecoms Tech News · Google Alertes",
+      "title": "Migration post-quantique des connexions IPsec dans les réseaux 5G",
+      "summary": "L’article du 19 novembre présente le guide ATIS : inventaire cryptographique, échanges de clés multiples pour IKEv2, contrôle du retour aux algorithmes classiques et essais en laboratoire avant déploiement. Il s’agit d’un guide de migration, pas d’un standard.",
+      "url": "https://www.telecomstechnews.com/news/atis-releases-5g-playbook-for-post-quantum-cryptography/"
     }
   ]
 }
