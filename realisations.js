@@ -23,10 +23,11 @@ function card(x){
 async function init(){
  const root=q('#catalog-projects'),stage=q('#catalog-stages'),nav=q('#project-index'),total=q('#project-total');if(!root||!stage||!nav||!total)return;
  try{const response=await fetch('data/realisations.json',{cache:'no-cache'});if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();const items=Array.isArray(data.items)?data.items.filter(valid):[];
- const seen=new Set();for(const x of items){if(seen.has(x.id))continue;seen.add(x.id);
+ const impact=q('#catalog-impact');const seen=new Set();for(const x of items){if(seen.has(x.id))continue;seen.add(x.id);
  const existing=document.getElementById(x.id);
  if(existing&&!existing.matches('#projets > article, #catalog-projects > article, #catalog-stages > article'))continue;
  const a=card(x);if(existing){if(x.type!=='project')continue;existing.replaceWith(a);}else (x.type==='project'?root:stage).append(a);
+ if(impact){const item=elem('article','','impact-card');item.append(elem('span',x.category,'tag'),elem('h3',x.title),elem('p',x.business),link('Voir la réalisation ↗','#'+x.id));impact.append(item);}
  if(x.type==='project'){let n=qa('a',nav).find(a=>a.getAttribute('href')==='#'+x.id);if(!n){n=link('','#'+x.id,allowed.includes(x.style)?x.style:'other');n.append(elem('span',String(qa('a',nav).length+1).padStart(2,'0')),elem('strong',x.title),elem('small',x.category));nav.append(n);}else{const t=q('strong',n);if(t)t.textContent=x.title;const s=q('small',n);if(s)s.textContent=x.category;}}
  }
  total.textContent=String(qa('#projets article.portfolio-project').length);
