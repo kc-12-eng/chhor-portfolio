@@ -1,6 +1,14 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "items": [
+    {
+      "kind": "PULL",
+      "date": "2026-11-27",
+      "source": "ANSSI · MesServicesCyber",
+      "title": "Nouveau guide français pour IPsec post-quantique en diffusion restreinte",
+      "summary": "Publié le 17 novembre 2026, le guide présente des recommandations pour intégrer la PQC à la confidentialité des flux IPsec en diffusion restreinte, avec des exemples pédagogiques sous strongSwan 6.1.0. Il ne traite pas de l’authentification post-quantique, dont la normalisation est encore en cours.",
+      "url": "https://messervices.cyber.gouv.fr/guides/implementation-ipsec-pqc-dr"
+    },
     {
       "kind": "PULL",
       "date": "2026-11-26",
