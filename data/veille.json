@@ -1,6 +1,14 @@
 {
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "items": [
+    {
+      "kind": "PULL",
+      "date": "2026-11-28",
+      "source": "Cisco · Documentation IOS XE",
+      "title": "Établissement hybride des clés IKEv2 sur Cisco IOS XE 26",
+      "summary": "Le guide actualisé le 28 septembre 2026 documente la prise en charge de ML-KEM avec Diffie-Hellman sur les commutateurs C9350 sous IOS XE 26.2.1. ML-KEM (FIPS 203) protège l’établissement des clés ; ESP conserve le chiffrement des données. Il s’agit d’une documentation constructeur, non d’un nouveau standard IETF.",
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/c9000/security/ipsec/ipsec-configuration-guide/configure_ipsec.html"
+    },
     {
       "kind": "PULL",
       "date": "2026-11-27",
@@ -56,6 +64,14 @@
       "title": "Migration post-quantique des connexions IPsec dans les réseaux 5G",
       "summary": "L’article du 19 novembre présente le guide ATIS : inventaire cryptographique, échanges de clés multiples pour IKEv2, contrôle du retour aux algorithmes classiques et essais en laboratoire avant déploiement. Il s’agit d’un guide de migration, pas d’un standard.",
       "url": "https://www.telecomstechnews.com/news/atis-releases-5g-playbook-for-post-quantum-cryptography/"
+    },
+    {
+      "kind": "PUSH",
+      "date": "2026-11-24",
+      "source": "Quantum Computing Report · Google Alertes",
+      "title": "Expérimentation transatlantique associant IPsec et cryptographie post-quantique",
+      "summary": "Le 20 novembre 2026, la publication décrit une démonstration de réseau de recherche combinant distribution quantique de clés sur des liaisons locales et ML-KEM sur les longues distances, avec des tunnels IPsec. Il s’agit d’une expérimentation, non d’un nouveau standard IKEv2.",
+      "url": "https://quantumcomputingreport.com/international-consortium-demonstrates-8000-km-hybrid-qkd-and-post-quantum-network-linking-europe-and-the-u-s-at-sc26/"
     }
   ]
 }
